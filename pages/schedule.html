@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+    <head>
+        <base href="https://solidus.systems/anext2023/" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="shortcut icon" href="favicon-192x192.png" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="manifest" href="manifest.json">
+        <title>Convention Schedule | AnimeNEXT</title>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="favicon-32x32.png" alt="Logo" width="32" height="32" class="d-inline-block align-text-top">
+                        AnimeNEXT 2023
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/schedule.html">Schedule</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/location.html">Location</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/shuttles.html">Shuttles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/about.html">About</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <!-- content goes below -->
+            <h1 class="mb-1">Schedule</h1>
+            <small class="mb-3">Schedule as of <span id="schedUpdatedAt">N/A</span></small>
+            <div class="sticky-top mb-3 bg-body">
+                <div class="input-group mb-1">
+                    <div class="input-group-text">Event Type</div>
+                    <select id="eventTypeFilter" class="form-select schedFilter" aria-label="Event Type Filter">
+                        <option value="" selected>All</option>
+                    </select>
+                </div>
+                <div class="input-group mt-1">
+                    <div class="input-group-text">Location</div>
+                    <select id="locationFilter" class="form-select schedFilter" aria-label="Location Filter">
+                        <option value="" selected>All</option>
+                    </select>
+                </div>
+            </div>
+            <!--TODO: Alerts go here-->
+            <div class="accordion" id="schedule">
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+        <script src="sched.js"></script>
+        <script>
+            if('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('sw.js', { scope: '/anext2023/' });
+            }
+
+            getSchedule().then((rawSched) => {
+                let sched = parseSchedule(rawSched);
+                displaySchedule(sched);
+
+                document.querySelectorAll('select.schedFilter').forEach((element) => {
+                    element.addEventListener('change', (event) => {
+                        const schedule = document.getElementById('schedule');
+
+                        //Make sure filter is cleared
+                        const scheduleItems = schedule.querySelectorAll('li.scheduleItem');
+                        scheduleItems.forEach((item) => {
+                            item.classList.remove('d-none');
+                        });
+
+                        const typeFilter = document.getElementById('eventTypeFilter').value;
+                        const locFilter = document.getElementById('locationFilter').value;
+
+                        if (typeFilter.length == 0 && locFilter.length == 0) return; //This is probably the All selection so we're done
+
+                        scheduleItems.forEach((item) => {
+                            let matchesType = typeFilter.length == 0 || (typeFilter.length > 0 && item.getAttribute('data-evttype').includes(typeFilter));
+                            let matchesLoc = locFilter.length == 0 || (locFilter.length > 0 && item.getAttribute('data-evtloc') == locFilter);
+
+                            if (!matchesType || !matchesLoc)
+                                item.classList.add('d-none');
+                        });
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

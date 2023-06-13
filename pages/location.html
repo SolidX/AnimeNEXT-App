@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+    <head>
+        <base href="https://solidus.systems/anext2023/" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="shortcut icon" href="favicon-192x192.png" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="manifest" href="manifest.json">
+        <title>Location | AnimeNEXT</title>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="favicon-32x32.png" alt="Logo" width="32" height="32" class="d-inline-block align-text-top">
+                        AnimeNEXT 2023
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/schedule.html">Schedule</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/location.html">Location</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/shuttles.html">Shuttles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/about.html">About</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        <!-- content goes below -->
+        <h1 class="mb-1">Locations</h1>
+        <div class="card mb-2">
+            <img src="img/NJCEC.jpg" class="card-img-top" />
+            <div class="card-body">                
+                <h5 class="card-title">New Jersey Convention & Expo Center (NJCEC)</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">97 Sunfield Ave, Edison, NJ 08837</h6>
+                <p class="card-text">
+                    Artist Alley, Dealers Room, Cosplay Pro Wrestling, Car Show, Arcade Games, Hall Cosplay, Charity Auction, Guest Panels and Autographs, and Main Events
+                </p>
+                <a href="https://www.njexpocenter.com/" class="btn btn-primary" target="_blank">Offical Website</a>
+                <a href="https://goo.gl/maps/LQbukp5ryYm8ePAM7" class="btn btn-info" target="_blank">Google Maps</a>
+            </div>
+        </div>
+
+        <div class="card mb-2">
+            <img src="img/HRNB.jpg" class="card-img-top" />
+            <div class="card-body">
+                <h5 class="card-title">Hyatt Regency New Brunswick</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">2 Albany St, New Brunswick, NJ 08901</h6>
+                <p class="card-text">
+                    Tabletop Gaming, Panels, Karaoke, Game Shows, Modern & Retro Video games, Anime Music Videos, Manga Library, and Cosplay Repair
+                </p>
+                <a href="https://www.hyatt.com/en-US/hotel/new-jersey/hyatt-regency-new-brunswick/ewrrn?src=corp_lclb_gmb_seo_ewrrn" class="btn btn-primary" target="_blank">Offical Website</a>
+                <a href="https://goo.gl/maps/Con8V6wx6M6CW6vr9" class="btn btn-info" target="_blank">Google Maps</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script>
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js', { scope: '/anext2023/' });
+        }
+    </script>
+  </body>
+</html>
