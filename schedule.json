@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1686624345,
+  "updatedAt": 1686778421,
   "events": [
     {
       "Start": "6/16/2023 13:45",
@@ -116,7 +116,7 @@
     {
       "Start": "6/16/2023 14:00",
       "End": "6/16/2023 15:30",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming",
       "Name": "Bullets and Butterfly Wings",
       "Description": "Like Magical Girls? Love Idols? Or are you a fan of things with a mecha lean? Welcome to Symphogear!  Come join us as we talk about the series, the meanings behind the songs and delve into the amazing storyline that spanned a decade!"
@@ -124,7 +124,7 @@
     {
       "Start": "6/16/2023 15:45",
       "End": "6/16/2023 17:15",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming",
       "Name": "Danganronpa: Mock Class Trials!",
       "Description": "Seven people will be selected to play one of three mock class trials inspired by the video game series Danganronpa! Each round players will try to figure out who is the Blackened (killer) in the group with clues and a brief description of the crime scene. But, there's more! Surprise mini games like hangman and dance battles will be thrown into the mix."
@@ -132,7 +132,7 @@
     {
       "Start": "6/16/2023 17:30",
       "End": "6/16/2023 18:30",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming",
       "Name": "Designing Original Characters: Giving OCs A Makeover!",
       "Description": "Every artist has created an original character at one point or another. This panel will dive into the fundamentals of character design and offer participants an opportunity to redesign their own characters. Topics include drawing a variety of body types and composing eye-catching outfits that will make your characters pop. Participants are encouraged to bring their own drawing supplies, however, pencils and paper will be provided to anyone who needs them."
@@ -140,7 +140,7 @@
     {
       "Start": "6/16/2023 18:45",
       "End": "6/16/2023 19:45",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming",
       "Name": "Furoshiki Workshop: The Art of Japanese Fabric Folding",
       "Description": "Have you ever watched an anime character unwrap a Bento box and thought, “That's an awesome way to wrap a lunch! How do I do that?”? Furoshiki is the traditional Japanese art of wrapping everyday parcels for carrying, and this workshop will teach you many common techniques for wrapping and tying such packages."
@@ -148,7 +148,7 @@
     {
       "Start": "6/16/2023 20:00",
       "End": "6/16/2023 21:30",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming",
       "Name": "Death Flag or Plot Armor: A Survival Guide for Anime",
       "Description": "A comedic, over-the-top look at where anime characters go wrong and why. Our panelists go over a list of survival tips that every anime character must follow to gain plot armor and avoid that nasty death flag."
@@ -156,7 +156,7 @@
     {
       "Start": "6/16/2023 21:45",
       "End": "6/16/2023 23:15",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming, 18+",
       "Name": "Fanfiction Writing: Grammar Tips, Bio Help, and Free Write 18+",
       "Description": "Learn grammar and formatting tips as well as how to write attention grabbing and engaging bios that make readers want to jump into your story. There will also be time for free writing plus a group brainstorming session! *Lead panelist has a MFA in Creative Writing and a MA in Publishing with a focus in Editing."
@@ -210,15 +210,15 @@
       "Description": "Opera brings many concepts to mind: drama, romance, intrigue, hope and sorrow. If you feel the only thing it's missing is \"superpowers\" and \"mecha,” then look no further than \"Giant Robo.” This retro-futuristic gem of the 1990's, based on the collective works of Mitsuteru Yokoyama, the creator of \"Gigantor\" and \"Babel II,” pushed animated storytelling into narrative styles typically reserved for theaters and opera houses."
     },
     {
-      "Start": "6/16/2023 19:15",
-      "End": "6/16/2023 16:00",
+      "Start": "6/16/2023 13:15",
+      "End": "6/16/2023 15:30",
       "Location": "AMVs/Panels - Hyatt Garden State Ballroom",
       "Type": "AMVs",
       "Name": "Friday AMV Non-Finalists",
       "Description": "Every year, we receive far more AMV entries than can fit into our two-hour contest block. The Non-Finalist blocks exist to make sure all of these other fine videos get their chance to shine."
     },
     {
-      "Start": "6/16/2023 16:00",
+      "Start": "6/16/2023 16:15",
       "End": "6/16/2023 18:15",
       "Location": "AMVs/Panels - Hyatt Garden State Ballroom",
       "Type": "AMVs",
@@ -412,7 +412,7 @@
     {
       "Start": "6/17/2023 10:00",
       "End": "6/17/2023 11:00",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming",
       "Name": "Stage On! Intro to Cosplay Contests 101",
       "Description": "Join abbyonthemoon to learn the basics of entering and participating in cosplay contests and masquerades!"
@@ -420,7 +420,7 @@
     {
       "Start": "6/17/2023 11:15",
       "End": "6/17/2023 12:45",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming",
       "Name": "Foam Armor and Prop-Making",
       "Description": "Ever wondered how to make foam armor and props for cosplay? This panel will teach you about the basics of EVA Foam and how to assemble your pieces! Presented By @iziebuilds."
@@ -428,7 +428,7 @@
     {
       "Start": "6/17/2023 13:00",
       "End": "6/17/2023 14:30",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming",
       "Name": "Con Survival: How to Make the Most Out of the Con",
       "Description": "Going to conventions can be fun yet stressful. We will discuss what to do before going, during and after a con to make the most out of your time at the event and have the best experience possible. This includes managing your money, time, and even health."
@@ -436,7 +436,7 @@
     {
       "Start": "6/17/2023 14:45",
       "End": "6/17/2023 15:45",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming",
       "Name": "Introduction to Yokai",
       "Description": "Have you ever experienced a supernatural phenomenon that can't be explained? Have you ever wondered what that hyper-specific reference was in your manga or game? Well you're in luck! Join SpookySurgeon and AceDefective as we tell you about some cool and powerful yokai, and where you may have encountered them in the media before!"
@@ -444,7 +444,7 @@
     {
       "Start": "6/17/2023 16:00",
       "End": "6/17/2023 17:30",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming",
       "Name": "Swansongs and Bullets",
       "Description": "Not all magical girls are sugary sweet. Sometimes the war has casualties. And sometimes when you win, you lose. Join us as we descend into the darker side of the magical girl genre."
@@ -452,15 +452,15 @@
     {
       "Start": "6/17/2023 17:45",
       "End": "6/17/2023 19:15",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming",
-      "Name": "Dynamic Improve: Anime Edition",
+      "Name": "Dynamic Improv: Anime Edition",
       "Description": "Son Goku, Usagi Tsukino, and Izuku Midoriya walk into a bar. How does that play out? In Dynamic Improv: Anime Edition that's what the audience needs to figure out.We will have a hat with scenes that pairs of two will pick from. Tickets will be handed out at the door for random pair selection. Best part? There will be prizes for those who participate! All rules will be explained at the beginning of the panel."
     },
     {
       "Start": "6/17/2023 19:30",
       "End": "6/17/2023 20:30",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming",
       "Name": "Pepakura: The Art of Papercraft",
       "Description": "Papercraft, or Pepakura, is the art of turning a 3D model, often from a video game, into a real world paper model. Papercraft is a fun and inexpensive way to build and collect your favorite characters, and has been adapted as a way to make cosplay armor and props as well. Join WhiteRakogis of Rakogis Papercraft as he shows you the process of creating a paper model, from design to building it."
@@ -468,7 +468,7 @@
     {
       "Start": "6/17/2023 20:45",
       "End": "6/17/2023 21:45",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming",
       "Name": "How to get your friends into Anime",
       "Description": "What if you had the ability to turn the normies in your life into true otakus and weebs? Backed by real life success stories and examples from the professional sales world, this panel will arm you with the skills, system, and confidence to navigate one of life's most perplexing and complicated questions: “How can I get the friends in my life into anime?”"
@@ -476,7 +476,7 @@
     {
       "Start": "6/17/2023 22:00",
       "End": "6/17/2023 23:30",
-      "Location": "Panels 3 - Conference I",
+      "Location": "Panels 3 - Hyatt Conference I",
       "Type": "Panel Programming",
       "Name": "Split Second",
       "Description": "In this fast paced game show a three part question is shown to all players. Players score points for correct answers. At the end of the game the winner goes on to try and win a nice grand prize."
@@ -571,7 +571,7 @@
     },
     {
       "Start": "6/17/2023 17:45",
-      "End": "6/17/2023 18:45",
+      "End": "6/17/2023 20:00",
       "Location": "AMVs/Panels - Hyatt Garden State Ballroom",
       "Type": "AMVs",
       "Name": "Saturday AMV Non-Finalists",
@@ -744,6 +744,22 @@
       "Type": "Main Events",
       "Name": "Concert: Dom Palombi's Game Night",
       "Description": ""
+    },
+    {
+      "Start": "6/17/2023 13:00",
+      "End": "6/17/2023 15:00",
+      "Location": "NJCEC Hall C",
+      "Type": "Main Events",
+      "Name": "Cosplay Pro Wrestling",
+      "Description": ""
+    },
+    {
+      "Start": "6/18/2023 11:30",
+      "End": "6/18/2023 13:30",
+      "Location": "NJCEC Hall C",
+      "Type": "Game Shows",
+      "Name": "Cosplay Chess",
+      "Description": "What's better than human-sized chess? Using human cosplayers as the chees pieces! This year's theme is Might vs. Magic!"
     }
    ]
 }

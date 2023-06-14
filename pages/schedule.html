@@ -16,6 +16,7 @@
                     <a class="navbar-brand" href="#">
                         <img src="favicon-32x32.png" alt="Logo" width="32" height="32" class="d-inline-block align-text-top">
                         AnimeNEXT 2023
+                        <span class="badge text-bg-success">BETA</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -24,6 +25,9 @@
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/hours.html">Hours</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="pages/schedule.html">Schedule</a>
@@ -35,20 +39,30 @@
                                 <a class="nav-link" href="pages/shuttles.html">Shuttles</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="pages/artistsalley.html">Artists Alley</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Policies
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="pages/conduct.html">General Conduct Policy</a></li>
+                                    <li><a class="dropdown-item" href="pages/dresscode.html">Dress Code</a></li>
+                                    <li><a class="dropdown-item" href="pages/bagpolicy.html">Bag Policy</a></li>
+                                    <li><a class="dropdown-item" href="pages/cosplaypropspolicy.html">Cosplay, Props, & Sign Policy</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="pages/about.html">About</a>
                             </li>
                         </ul>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
                     </div>
                 </div>
             </nav>
             <!-- content goes below -->
             <h1 class="mb-1">Schedule</h1>
             <small class="mb-3">Schedule as of <span id="schedUpdatedAt">N/A</span></small>
-            <div class="sticky-top mb-3 bg-body">
+            <div class="sticky-top mb-3 bg-body py-2" style="z-index: 990;">
                 <div class="input-group mb-1">
                     <div class="input-group-text">Event Type</div>
                     <select id="eventTypeFilter" class="form-select schedFilter" aria-label="Event Type Filter">
@@ -62,8 +76,13 @@
                     </select>
                 </div>
             </div>
-            <!--TODO: Alerts go here-->
+            <!--TODO: Alerts can go here-->
             <div class="accordion" id="schedule">
+            </div>
+            <div id="offline" class="container sticky-bottom d-none">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    You are currently offline. Displayed information may be out-of-date.
+                </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -74,7 +93,7 @@
                 navigator.serviceWorker.register('sw.js', { scope: '/anext2023/' });
             }
 
-            getSchedule().then((rawSched) => {
+            getDataFeed('schedule').then((rawSched) => {
                 let sched = parseSchedule(rawSched);
                 displaySchedule(sched);
 
@@ -102,6 +121,13 @@
                         });
                     });
                 });
+            });
+
+            window.addEventListener("online", (event) => {
+                document.getElementById("offline").classList.add("d-none");
+            });
+            window.addEventListener("offline", (event) => {
+                document.getElementById("offline").classList.remove("d-none");
             });
         </script>
     </body>

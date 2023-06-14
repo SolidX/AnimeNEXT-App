@@ -19,14 +19,30 @@ function eventTypeColorClassMapping (t) {
     }
 }
 
-function getSchedule() {
-    return fetch("schedule.json").then((response) => {
-        if (!response.ok) {
-            //TODO: Error handling
-            throw new Error(`Failed to get scheduling file. Status: ${response.status}`);
-        }
-        return response.json();
-    }).then((data) => data);
+function getDataFeed(feedType) {
+    let file = null;
+    
+    switch(feedType) {
+        case 'schedule':
+            file = 'schedule.json';
+            break;
+        case 'artists':
+            file = 'artists.json';
+            break;
+        case 'dealers':
+        default:
+            file = null;
+    }
+
+    if (file !== null) {
+        return fetch(file).then((response) => {
+            if (!response.ok) {
+                //TODO: Error handling
+                throw new Error(`Failed to get scheduling file. Status: ${response.status}`);
+            }
+            return response.json();
+        }).then((data) => data);
+    }
 }
 
 function parseSchedule(rawSchedule) {
@@ -176,4 +192,34 @@ function displaySchedule(parsedSched) {
 
         typeFilter.appendChild(opt);
     });
+}
+
+function sortArtists(rawArtists) {
+    rawArtists.sort((a, b) => {
+        return ('' + a.Artist).localeCompare(b.Artist);
+    });
+    return rawArtists;
+}
+
+function displayArtists(artists) {
+    const artistList = document.getElementById("artists");
+
+    artists.forEach((artist) => {
+        if (artist.Artist == '' || artist.Artist == null || artist.Artist == undefined || artist.Artist.length == 0)
+            return;
+
+        const artistItem = document.createElement('li');
+        artistItem.classList.add('list-group-item');
+
+        const studio = document.createElement('div');
+        studio.classList.add('fw-bold');
+        studio.innerText = artist.Artist;
+
+        const booth = document.createElement('div');
+        booth.innerText = "Booth #" + artist.Booth;
+
+        artistItem.appendChild(studio);
+        artistItem.appendChild(booth);
+        artistList.appendChild(artistItem);
+    });    
 }

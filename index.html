@@ -16,6 +16,7 @@
                     <a class="navbar-brand" href="#">
                         <img src="./favicon-32x32.png" alt="Logo" width="32" height="32" class="d-inline-block align-text-top">
                         AnimeNEXT 2023
+                        <span class="badge text-bg-success">BETA</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -24,6 +25,9 @@
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/hours.html">Hours</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="pages/schedule.html">Schedule</a>
@@ -35,56 +39,77 @@
                                 <a class="nav-link" href="pages/shuttles.html">Shuttles</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="pages/artistsalley.html">Artists Alley</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Policies
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="pages/conduct.html">General Conduct Policy</a></li>
+                                    <li><a class="dropdown-item" href="pages/dresscode.html">Dress Code</a></li>
+                                    <li><a class="dropdown-item" href="pages/bagpolicy.html">Bag Policy</a></li>
+                                    <li><a class="dropdown-item" href="pages/cosplaypropspolicy.html">Cosplay, Props, & Sign Policy</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="pages/about.html">About</a>
                             </li>
                         </ul>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
                     </div>
                 </div>
             </nav>
             <!-- content goes below -->
             <h1 class="mb-1">Welcome to AnimeNEXT 2023!</h1>
-            <p>
+            <p class="lead">
                 As the largest independently-organized anime convention in the New Jersey and Philadelphia area,
-                we are thrilled celebrate a full weekend of anime, manga, games, cosplay, and Japanese pop culture with you!
+                we are thrilled to celebrate a full weekend of anime, manga, games, cosplay, and Japanese pop culture with you!
             </p>
 
-            <div class="alert alert-info" role="alert">
-                <h4 class="alert-heading">Convention Hours</h4>
+            <div class="alert alert-secondary" role="alert">
+                <h4 class="alert-heading">Social Media</h4>
+                <p>Find us on social media and use our official hashtag, <a href="#" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">#AnimeNEXT</a>!</dp>
                 <div class="row">
-                    <div class="col-sm-3 fw-bold">Friday:</div>
-                    <div class="col-sm-9">
-                        <span class='fw-bold'>NJCEC:</span> 9 am to 12 am<br />
-                        <span class='fw-bold'>Hyatt:</span> 9 am to 12 am
-                    </div>
+                    <div class="col-sm-3 fw-bold">Facebook:</div>
+                    <div class="col-sm-9"><a href="https://facebook.com/animenext">AnimeNEXT Facebook Page</a></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-3 fw-bold">Saturday:</div>
-                    <div class="col-sm-9">
-                        <span class='fw-bold'>NJCEC:</span> 9 am to 1:30 am<br />
-                        <span class='fw-bold'>Hyatt:</span> 9 am to 12 am
-                    </div>
+                    <div class="col-sm-3 fw-bold">Instagram:</div>
+                    <div class="col-sm-9"><a href="https://instagram.com/animenextcon">@animenextcon</a></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-3 fw-bold">Sunday:</div>
-                    <div class="col-sm-9">
-                        <span class='fw-bold'>NJCEC:</span> 9 am to 6 pm<br />
-                        <span class='fw-bold'>Hyatt:</span> 9 am to 6 pm
-                    </div>
+                    <div class="col-sm-3 fw-bold">Twitter:</div>
+                    <div class="col-sm-9"><a href="https://twitter.com/animenext" target="_blank">@AnimeNEXT</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 fw-bold">Discord:</div>
+                    <div class="col-sm-9"><a href="https://discord.gg/ZmtFXDd" target="_blank">Official AnimeNEXT Discord Server</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 fw-bold">Twitch:</div>
+                    <div class="col-sm-9"><a href="https://www.twitch.tv/animenext" target="_blank">Twitch Channel</a></div>
                 </div>
                 <hr>
-                <p class="mb-0">Remember to eat, sleep, and hydrate!</p>
+                <p class="mb-0">Don't forget to eat, sleep, wash up, and hydrate!</p>
             </div>
+            <div id="offline" class="container sticky-bottom d-none">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    You are currently offline. Displayed information may be out-of-date.
+                </div>
+            </div>            
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-        
         <script>
             if('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('sw.js', { scope: '/anext2023/' });
             }
+
+            window.addEventListener("online", (event) => {
+                document.getElementById("offline").classList.add("d-none");
+            });
+            window.addEventListener("offline", (event) => {
+                document.getElementById("offline").classList.remove("d-none");
+            });
         </script>
     </body>
 </html>
