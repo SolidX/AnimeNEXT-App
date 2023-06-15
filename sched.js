@@ -2,6 +2,10 @@ function compareEventsByTime(a, b) {
     return a.Start.toMillis() - b.Start.toMillis()
 }
 
+function sortStrings(a, b) {
+    return ('' + a.Artist).localeCompare(b.Artist);
+}
+
 function eventTypeColorClassMapping (t) {
     switch (t) {
         case 'Panel Programming':
@@ -30,6 +34,8 @@ function getDataFeed(feedType) {
             file = 'artists.json';
             break;
         case 'dealers':
+            file = 'dealers.json';
+            break;
         default:
             file = null;
     }
@@ -194,18 +200,11 @@ function displaySchedule(parsedSched) {
     });
 }
 
-function sortArtists(rawArtists) {
-    rawArtists.sort((a, b) => {
-        return ('' + a.Artist).localeCompare(b.Artist);
-    });
-    return rawArtists;
-}
+function displayExhibitors(exhibitors, type) {
+    const artistList = document.getElementById("exhibitors");
 
-function displayArtists(artists) {
-    const artistList = document.getElementById("artists");
-
-    artists.forEach((artist) => {
-        if (artist.Artist == '' || artist.Artist == null || artist.Artist == undefined || artist.Artist.length == 0)
+    exhibitors.forEach((exhibitor) => {
+        if (exhibitor.Name == '' || exhibitor.Name == null || exhibitor.Name == undefined || exhibitor.Name.length == 0)
             return;
 
         const artistItem = document.createElement('li');
@@ -213,10 +212,10 @@ function displayArtists(artists) {
 
         const studio = document.createElement('div');
         studio.classList.add('fw-bold');
-        studio.innerText = artist.Artist;
+        studio.innerText = exhibitor.Name;
 
         const booth = document.createElement('div');
-        booth.innerText = "Booth #" + artist.Booth;
+        booth.innerText = "Booth #" + exhibitor.Booth;
 
         artistItem.appendChild(studio);
         artistItem.appendChild(booth);

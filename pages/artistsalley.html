@@ -41,6 +41,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="pages/artistsalley.html">Artists Alley</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/dealersroom.html">Dealers' Room</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                   Policies
@@ -61,7 +64,7 @@
             </nav>
             <!-- content goes below -->
             <h1 class="mb-1">Artists Alley</h1>            
-            <ul class="list-group" id="artists">
+            <ul class="list-group" id="exhibitors">
             </ul>
             <div id="offline" class="container sticky-bottom d-none">
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -77,9 +80,9 @@
                 navigator.serviceWorker.register('sw.js', { scope: '/anext2023/' });
             }
 
-            getDataFeed('artists').then((rawArtists) => {
-                let artists = sortArtists(rawArtists);
-                displayArtists(artists);
+            getDataFeed('artists').then((artists) => {
+                artists.sort(sortStrings);
+                displayExhibitors(artists);
             });
 
             window.addEventListener("online", (event) => {
