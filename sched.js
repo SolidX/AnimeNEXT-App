@@ -18,6 +18,8 @@ function eventTypeColorClassMapping (t) {
             return 'text-bg-danger';
         case 'Main Events':
             return 'text-bg-warning';
+        case 'Guests / Autographs':
+            return 'text-bg-dark'
         default:
             return 'text-bg-light';
     }
