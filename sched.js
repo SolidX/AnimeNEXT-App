@@ -180,7 +180,8 @@ function displaySchedule(parsedSched) {
     });
 
     const locationFilter = document.getElementById('locationFilter');
-    eventLocations.forEach((item) => {
+    const sortedLocs = Array.from(eventLocations).sort((a,b) => { return '' + a.localeCompare(b) });
+    sortedLocs.forEach((item) => {
         if (item == null || item.length == 0) return;
 
         const opt = document.createElement('option');
