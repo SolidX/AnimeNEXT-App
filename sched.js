@@ -77,6 +77,7 @@ function parseSchedule(rawSchedule) {
 function displaySchedule(parsedSched) {
     let eventTypes = new Set();
     let eventLocations = new Set();
+    let navigateTo = undefined;
 
     parsedSched.events.forEach((events, day, map) => {
         events.sort(compareEventsByTime);
@@ -113,6 +114,7 @@ function displaySchedule(parsedSched) {
 
         events.forEach(e => {
             let itemStart = e.Start.toFormat('hh:mm a');
+            let itemStartMillis = e.Start.toMillis();
 
             const scheduleItem = document.createElement('li');
             scheduleItem.setAttribute('class', 'list-group-item scheduleItem');
@@ -149,20 +151,21 @@ function displaySchedule(parsedSched) {
             e.Type.split(',').forEach((t) => {
                 const badge = document.createElement('span');
                 const track = t.trim();
-                badge.setAttribute('class', `badge rounded-pill me-3 ${eventTypeColorClassMapping(track)}`);
+                badge.classList.add('badge', 'rounded-pill', 'me-3', eventTypeColorClassMapping(track));
                 badge.innerText = track;
 
                 eventTypes.add(track);
                 scheduleItem.appendChild(badge);
             });
 
-            if (!schedTimes.has(itemStart)) {
+            if (!schedTimes.has(itemStartMillis)) {
                 const timeHeader = document.createElement('li')
-                timeHeader.setAttribute('class', 'list-group-item list-group-item-secondary fw-bold');
+                timeHeader.classList.add('list-group-item', 'list-group-item-secondary', 'fw-bold');
+                timeHeader.id = itemStartMillis;
                 timeHeader.innerText = itemStart;
-                eventList.appendChild(timeHeader);
 
-                schedTimes.add(itemStart);
+                eventList.appendChild(timeHeader);
+                schedTimes.add(itemStartMillis);
             }
 
             eventList.appendChild(scheduleItem);
@@ -175,9 +178,20 @@ function displaySchedule(parsedSched) {
         section.appendChild(sectionContainer);
         schedRoot.appendChild(section);
 
-        const lastUpdated = document.getElementById('schedUpdatedAt');
-        lastUpdated.innerText = parsedSched.updatedAt;
+        if (expandDay) {
+            //Scroll to events starting just before now
+            const  now = luxon.DateTime.local().toMillis();
+            schedTimes.add(now);
+            
+            let tmp = [...schedTimes].sort((a, b) => { a - b });
+            let x = tmp.indexOf(now);
+            let pos = x > 0 ? x - 1 : 0;
+            document.getElementById(tmp[pos]).scrollIntoView({ behavior: "instant", block: "start", inline: "nearest" });
+        }
     });
+
+    const lastUpdated = document.getElementById('schedUpdatedAt');
+    lastUpdated.innerText = parsedSched.updatedAt;
 
     const locationFilter = document.getElementById('locationFilter');
     const sortedLocs = Array.from(eventLocations).sort((a,b) => { return '' + a.localeCompare(b) });
