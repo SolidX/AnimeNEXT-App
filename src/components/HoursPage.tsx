@@ -1,7 +1,7 @@
 import { Fragment } from "react/jsx-runtime";
 import Navigation from "./Navigation";
 import Alert from "./Alert";
-import { AlertType, type AccordionItemDetails } from "./components";
+import { AlertTypes, type AccordionItemDetails } from "./components";
 import Accordion from "./Accordion";
 
 export default function HoursPage(props: {currentPage: string}) {
@@ -300,7 +300,7 @@ export default function HoursPage(props: {currentPage: string}) {
             header: "Arcade Games",
             content: (
                 <Alert
-                    type={AlertType.Info}
+                    type={AlertTypes.Info}
                     heading="Arcade Games &mdash; NJCEC Hall C"
                     content={arcadeHours}
                 />
@@ -313,7 +313,7 @@ export default function HoursPage(props: {currentPage: string}) {
             header: "Artist Alley",
             content: (
                 <Alert
-                    type={AlertType.Info}
+                    type={AlertTypes.Info}
                     heading="Artist Alley &mdash; NJCEC Hall B"
                     content={artistAlleyHours}
                 />
@@ -326,7 +326,7 @@ export default function HoursPage(props: {currentPage: string}) {
             header: "Car Show",
             content: (
                 <Alert
-                    type={AlertType.Info}
+                    type={AlertTypes.Info}
                     heading="Car Show &mdash; NJCEC Hall C"
                     content={carShowHours}
                 />
@@ -339,7 +339,7 @@ export default function HoursPage(props: {currentPage: string}) {
             header: "Dealers' Room",
             content: (
                 <Alert
-                    type={AlertType.Info}
+                    type={AlertTypes.Info}
                     heading="Dealers' Room &mdash; NJCEC Hall A"
                     content={dealersRoomHours}
                 />
@@ -352,7 +352,7 @@ export default function HoursPage(props: {currentPage: string}) {
             header: "General Hours",
             content: (
                 <Alert
-                    type={AlertType.Info}
+                    type={AlertTypes.Info}
                     heading="Convention Hours"
                     content={generalHours}
                 />
@@ -365,7 +365,7 @@ export default function HoursPage(props: {currentPage: string}) {
             header: "Hall Cosplay",
             content: (
                 <Alert
-                    type={AlertType.Info}
+                    type={AlertTypes.Info}
                     heading="Hall Cosplay &mdash; Meeting Room 1"
                     content={hallCosplayHours}
                 />
@@ -378,7 +378,7 @@ export default function HoursPage(props: {currentPage: string}) {
             header: "Charity Auction",
             content: (
                 <Alert
-                    type={AlertType.Info}
+                    type={AlertTypes.Info}
                     heading="Charity Auction &mdash; NJCEC Junior Ballroom"
                     content={charityAuctionHours}
                 />
@@ -391,7 +391,7 @@ export default function HoursPage(props: {currentPage: string}) {
             header: "Cosplay Repair",
             content: (
                 <Alert
-                    type={AlertType.Info}                    
+                    type={AlertTypes.Info}                    
                     heading="Cosplay Repair &mdash; Hyatt Conference A"
                     content={cosplayRepairHours}
                 />
@@ -404,7 +404,7 @@ export default function HoursPage(props: {currentPage: string}) {
             header: "Karaoke",
             content: (
                 <Alert
-                    type={AlertType.Info}
+                    type={AlertTypes.Info}
                     heading="Karaoke &mdash; Hyatt Salon A & B"
                     content={karaokeHours}
                 />
@@ -417,7 +417,7 @@ export default function HoursPage(props: {currentPage: string}) {
             header: "Manga Library",
             content: (
                 <Alert
-                    type={AlertType.Info}
+                    type={AlertTypes.Info}
                     heading="Manga Library &mdash; Hyatt Conference B & C"
                     content={mangaLibraryHours}
                 />
@@ -430,7 +430,7 @@ export default function HoursPage(props: {currentPage: string}) {
             header: "Modern & Retro Video Games",
             content: (
                 <Alert
-                    type={AlertType.Info}
+                    type={AlertTypes.Info}
                     heading="Modern & Retro Video Games &mdash; Hyatt Brunswick Ballroom"
                     content={videoGamesHours}
                 />
@@ -443,7 +443,7 @@ export default function HoursPage(props: {currentPage: string}) {
             header: "Registration",
             content: (
                 <Alert
-                    type={AlertType.Info}
+                    type={AlertTypes.Info}
                     heading="Registration"
                     content={registrationHours}
                 />
@@ -456,7 +456,7 @@ export default function HoursPage(props: {currentPage: string}) {
             header: "Tabletop Gaming",
             content: (
                 <Alert
-                    type={AlertType.Info}
+                    type={AlertTypes.Info}
                     heading="Tabletop Gaming"
                     content={tabletopHours}
                 />

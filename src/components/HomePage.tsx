@@ -1,7 +1,7 @@
 import { Fragment } from "react/jsx-runtime";
 import Navigation from "./Navigation";
 import Alert from "./Alert";
-import { AlertType } from "./components";
+import { AlertTypes } from "./components";
 
 export default function HomePage(props: {currentPage: string; title: string;}) {
     const socialMedia = (
@@ -41,11 +41,11 @@ export default function HomePage(props: {currentPage: string; title: string;}) {
                 we are thrilled to celebrate a full weekend of anime, manga, games, cosplay, and Japanese pop culture with you!
             </p>
             <Alert
-                type={AlertType.Info}
+                type={AlertTypes.Info}
                 content={"Thank you for coming to AnimeNEXT 2023!"}
             />
             <Alert
-                type={AlertType.Secondary}
+                type={AlertTypes.Secondary}
                 heading="Social Media"
                 content={socialMedia}
             />
