@@ -17,4 +17,9 @@ export type AccordionItemDetails = {
     isCollapsed: boolean,
     header: string,
     content?: string | ReactElement
-}
+};
+
+export type ExhibitorDetails = {
+    Booth: number,
+    Name: string
+};

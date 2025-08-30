@@ -1,13 +1,17 @@
 import { useState } from 'react';
-import HoursPage from './components/HoursPage';
+import ExhibitorsListPage from './components/ExhibitorsListPage';
+import artists from './assets/artists.json'
+import dealers from './assets/dealers.json'
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("Hours");
+  const [currentPage, setCurrentPage] = useState("Dealers' Room");
 
   //TODO: update currentPage on page click, surprisingly this never worked in the original version
   return (
-    <HoursPage
+    <ExhibitorsListPage
       currentPage={currentPage}
+      title={currentPage}
+      exhibitors={dealers}
     />
   )
 }
