@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import Page from './components/Page';
+import HomePage from './components/HomePage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Home");
 
   //TODO: update currentPage on page click, surprisingly this never worked in the original version
   return (
-    <Page
+    <HomePage
       currentPage={currentPage}
       title="Welcome to AnimeNEXT 2023!"
     />
