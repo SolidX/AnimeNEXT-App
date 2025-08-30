@@ -1,3 +1,5 @@
+import type { ReactElement } from "react";
+
 export const AlertType = {
     Primary: "alert-primary",
     Secondary: "alert-secondary",
@@ -8,3 +10,11 @@ export const AlertType = {
     Light: "alert-light",
     Dark: "alert-dark"
 } as const;
+
+export type AccordionItemDetails = {
+    parentId: string,
+    itemId: string,
+    isCollapsed: boolean,
+    header: string,
+    content?: string | ReactElement
+}

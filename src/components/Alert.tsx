@@ -1,10 +1,10 @@
 import type { ReactElement } from "react";
-import { AlertType } from "./components";
 
-export default function Alert(props: {type: string, content?: string | ReactElement}) {
+export default function Alert(props: {type: string, heading?: string, content?: string | ReactElement}) {
 
     return (
         <div className={`alert ${props.type}`} role="alert">
+            {props.heading !== undefined && <h4 className="alert-heading">{props.heading}</h4>}
             {props.content}
         </div>
     );

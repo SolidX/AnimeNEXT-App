@@ -6,7 +6,6 @@ import { AlertType } from "./components";
 export default function HomePage(props: {currentPage: string; title: string;}) {
     const socialMedia = (
         <Fragment>
-            <h4 className="alert-heading">Social Media</h4>
             <p>Find us on social media and use our official hashtag, <a href="#" className="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">#AnimeNEXT</a>!
             </p><div className="row">
                 <div className="col-sm-3 fw-bold">Facebook:</div>
@@ -33,7 +32,6 @@ export default function HomePage(props: {currentPage: string; title: string;}) {
         </Fragment>
     );
 
-
     return (
         <Fragment>
             <Navigation currentPage={props.currentPage} />
@@ -48,6 +46,7 @@ export default function HomePage(props: {currentPage: string; title: string;}) {
             />
             <Alert
                 type={AlertType.Secondary}
+                heading="Social Media"
                 content={socialMedia}
             />
         </Fragment>        
