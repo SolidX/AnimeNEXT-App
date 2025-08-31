@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import DressCodePage from './pages/DressCodePage';
+import AboutPage from './pages/AboutPage';
 
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("Dress Code");
+  const [currentPage, setCurrentPage] = useState("About");
 
   //TODO: update currentPage on page click, surprisingly this never worked in the original version
   return (
-    <DressCodePage
+    <AboutPage
       currentPage={currentPage}
     />
   );
