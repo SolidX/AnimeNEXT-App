@@ -1,8 +1,8 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "./Navigation";
-import Alert from "./Alert";
-import { AlertTypes, type AccordionItemDetails } from "./components";
-import Accordion from "./Accordion";
+import Navigation from "../components/Navigation";
+import Alert from "../components/Alert";
+import { AlertTypes, type AccordionItemDetails } from "../components/components";
+import Accordion from "../components/Accordion";
 
 export default function HoursPage(props: {currentPage: string}) {
     const accordianID = "eventHours";

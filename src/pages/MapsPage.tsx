@@ -1,6 +1,6 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "./Navigation";
-import Card from "./Card";
+import Navigation from "../components/Navigation";
+import Card from "../components/Card";
 import Hyatt1F from "../assets/hyatt1stfloor.jpg";
 import Hyatt2F from "../assets/hyatt2ndfloor.jpg";
 import HyattLL from "../assets/hyattlowerlevel.jpg";

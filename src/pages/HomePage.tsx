@@ -1,7 +1,7 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "./Navigation";
-import Alert from "./Alert";
-import { AlertTypes } from "./components";
+import Navigation from "../components/Navigation";
+import Alert from "../components/Alert";
+import { AlertTypes } from "../components/components";
 
 export default function HomePage(props: {currentPage: string; title: string;}) {
     const socialMedia = (

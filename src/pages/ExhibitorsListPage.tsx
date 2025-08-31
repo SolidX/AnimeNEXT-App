@@ -1,6 +1,6 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "./Navigation";
-import type { ExhibitorDetails } from "./components";
+import Navigation from "../components/Navigation";
+import type { ExhibitorDetails } from "../components/components";
 
 export default function ExhibitorsListPage(props: {currentPage: string; title: string; exhibitors: ExhibitorDetails[]}) {
     const exhibitorList = props.exhibitors.map((e) => {

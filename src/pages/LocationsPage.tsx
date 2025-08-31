@@ -1,9 +1,9 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "./Navigation";
-import Card from "./Card";
+import Navigation from "../components/Navigation";
+import Card from "../components/Card";
 import NJCEC from "../assets/NJCEC.jpg";
 import Hyatt from "../assets/HRNB.jpg";
-import { AnchorButtonTypes, type AnchorButtonProps } from "./components";
+import { AnchorButtonTypes, type AnchorButtonProps } from "../components/components";
 
 export default function LocationsPage(props: {currentPage: string}) {
     const njcecLinks : AnchorButtonProps[] = [
