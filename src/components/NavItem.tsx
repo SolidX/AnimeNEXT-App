@@ -4,9 +4,8 @@ export default function NavItem(props: {text: string; url: string | undefined; c
     if (props.isDropdown === true) {
         const dropdownItems = props.subItems === undefined ? undefined : props.subItems.map((item) => {
             return (
-                <li>
+                <li key={item.text}>
                     <NavLink
-                        key={item.text}
                         text={item.text}
                         url={item.url}
                         isCurrentPage={props.currentPage == item.text}
@@ -17,7 +16,7 @@ export default function NavItem(props: {text: string; url: string | undefined; c
         });
 
         return (
-            <li className="nav-item dropdown">
+            <li key={props.text} className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{props.text}</a>
                 <ul className="dropdown-menu">
                     {dropdownItems}
@@ -26,9 +25,8 @@ export default function NavItem(props: {text: string; url: string | undefined; c
         );
     } else {
         return (
-            <li className="nav-item">
+            <li key={props.text} className="nav-item">
                 <NavLink
-                    key={props.text}
                     text={props.text}
                     url={props.url}
                     isCurrentPage={props.currentPage == props.text}
