@@ -6,35 +6,35 @@ import Hyatt from "../assets/HRNB.jpg";
 import { AnchorButtonTypes, type AnchorButtonProps } from "./components";
 
 export default function LocationsPage(props: {currentPage: string}) {
-const njcecLinks : AnchorButtonProps[] = [
-    {
-        type: AnchorButtonTypes.Primary,
-        url: "https://www.njexpocenter.com/",
-        text: "Offical Website",
-        target: "_blank"
-    },
-    {
-        type: AnchorButtonTypes.Info,
-        url: "https://goo.gl/maps/LQbukp5ryYm8ePAM7",
-        text: "Google Maps",
-        target: "_blank"
-    }
-];
+    const njcecLinks : AnchorButtonProps[] = [
+        {
+            type: AnchorButtonTypes.Primary,
+            url: "https://www.njexpocenter.com/",
+            text: "Offical Website",
+            target: "_blank"
+        },
+        {
+            type: AnchorButtonTypes.Info,
+            url: "https://goo.gl/maps/LQbukp5ryYm8ePAM7",
+            text: "Google Maps",
+            target: "_blank"
+        }
+    ];
 
-const hyattLinks = [
-    {
-        type: AnchorButtonTypes.Primary,
-        url: "https://www.hyatt.com/en-US/hotel/new-jersey/hyatt-regency-new-brunswick/ewrrn?src=corp_lclb_gmb_seo_ewrrn",
-        text: "Offical Website",
-        target: "_blank"
-    },
-    {
-        type: AnchorButtonTypes.Info,
-        url: "https://goo.gl/maps/Con8V6wx6M6CW6vr9",
-        text: "Google Maps",
-        target: "_blank"
-    }
-];
+    const hyattLinks : AnchorButtonProps[] = [
+        {
+            type: AnchorButtonTypes.Primary,
+            url: "https://www.hyatt.com/en-US/hotel/new-jersey/hyatt-regency-new-brunswick/ewrrn?src=corp_lclb_gmb_seo_ewrrn",
+            text: "Offical Website",
+            target: "_blank"
+        },
+        {
+            type: AnchorButtonTypes.Info,
+            url: "https://goo.gl/maps/Con8V6wx6M6CW6vr9",
+            text: "Google Maps",
+            target: "_blank"
+        }
+    ];
 
     return (
         <Fragment>
