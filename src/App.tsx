@@ -1,15 +1,13 @@
 import { useState } from 'react';
-import ConductPolicyPage from './pages/ConductPolicyPage';
-import BagPolicyPage from './pages/BagPolicyPage';
-import CosplayPropsPolicyPage from './pages/CosplayPropsPolicyPage';
+import DressCodePage from './pages/DressCodePage';
 
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("General Conduct Policy");
+  const [currentPage, setCurrentPage] = useState("Dress Code");
 
   //TODO: update currentPage on page click, surprisingly this never worked in the original version
   return (
-    <ConductPolicyPage
+    <DressCodePage
       currentPage={currentPage}
     />
   );
