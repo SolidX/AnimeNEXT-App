@@ -1,10 +1,8 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "../components/Navigation";
 
-export default function CosplayPropsPolicyPage(props: {currentPage : string}) {
+export default function CosplayPropsPolicyPage() {
     return (
         <Fragment>
-            <Navigation currentPage={props.currentPage} />
             <h1 className="mb-1">Cosplay, Props, &amp; Sign Policy</h1>
             <h2 className="mb-1">Weapons and Cosplay Props</h2>
             <ol>

@@ -1,10 +1,8 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "../components/Navigation";
 
-export default function ConductPolicyPage(props: {currentPage : string}) {
+export default function AboutPage() {
     return (
         <Fragment>
-            <Navigation currentPage={props.currentPage} />
             <h1 className="mb-1">About the App</h1>
             <p>
                 Since we don't have a Guidebook app this year, a few staff members got together and decided to build this <a href="https://en.wikipedia.org/wiki/Progressive_web_app" target="_blank">PWA</a> as a proof of concept of what we could do on our own.

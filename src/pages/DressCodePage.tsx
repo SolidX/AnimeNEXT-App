@@ -1,12 +1,10 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "../components/Navigation";
 import Bikini from "../assets/dresscode_bikini.png";
 import Trunks from "../assets/dresscode_trunks.png";
 
-export default function DressCodePage(props: {currentPage : string}) {
+export default function DressCodePage() {
     return (
         <Fragment>
-            <Navigation currentPage={props.currentPage} />
             <h1 className="mb-1">Dress Code</h1>
             <h2 className="mb-1">Women's Dress Code</h2>
             <div className="row">
@@ -43,6 +41,6 @@ export default function DressCodePage(props: {currentPage : string}) {
                     </ol>
                 </div>
             </div>
-        </Fragment>        
+        </Fragment>
     );
 }

@@ -1,7 +1,9 @@
-export default function NavLink(props: { isCurrentPage: boolean; isDropdown: boolean; text: string; url: string | undefined; }) {
+import { Link, type To } from "react-router";
+
+export default function NavLink(props: { isCurrentPage: boolean; isDropdown: boolean; text: string; url: To; }) {
     if (props.isCurrentPage === true) {
-        return (<a className={props.isDropdown === true ? "dropdown-item" : "nav-link"} aria-current="page" href="#">{props.text}</a>);
+        return (<Link className={props.isDropdown === true ? "dropdown-item" : "nav-link"} aria-current="page" to={props.url}>{props.text}</Link>);
     } else {
-        return (<a className={props.isDropdown === true ? "dropdown-item" : "nav-link"} href={props.url}>{props.text}</a>);
+        return (<Link className={props.isDropdown === true ? "dropdown-item" : "nav-link"} to={props.url}>{props.text}</Link>);
     }
 }

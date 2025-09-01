@@ -1,12 +1,10 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "../components/Navigation";
 import Alert from "../components/Alert";
 import { AlertTypes } from "../components/components";
 
-export default function ShuttlesPage(props: {currentPage : string}) {
+export default function ShuttlesPage() {
     return (
         <Fragment>
-            <Navigation currentPage={props.currentPage} />
             <h1 className="mb-1">Shuttles</h1>
             <h2>Routes</h2>
             <dl className="row">

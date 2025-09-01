@@ -1,9 +1,8 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "../components/Navigation";
 import Alert from "../components/Alert";
 import { AlertTypes } from "../components/components";
 
-export default function HomePage(props: {currentPage: string; title: string;}) {
+export default function HomePage(props: {title: string}) {
     const socialMedia = (
         <Fragment>
             <p>Find us on social media and use our official hashtag, <a href="#" className="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">#AnimeNEXT</a>!
@@ -34,7 +33,6 @@ export default function HomePage(props: {currentPage: string; title: string;}) {
 
     return (
         <Fragment>
-            <Navigation currentPage={props.currentPage} />
             <h1 className="mb-1">{props.title}</h1>
             <p className="lead">
                 As the largest independently-organized anime convention in the New Jersey and Philadelphia area,

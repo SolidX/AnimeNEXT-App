@@ -1,10 +1,8 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "../components/Navigation";
 
-export default function ConductPolicyPage(props: {currentPage : string}) {
+export default function ConductPolicyPage() {
     return (
         <Fragment>
-            <Navigation currentPage={props.currentPage} />
             <h1 className="mb-1">General Conduct</h1>
             <ol>
                 <li>By purchasing a membership, you agree to the terms of the following code of conduct. Any violation of the code of conduct may be punishable up to, and including, revocation of membership, expulsion from the premises, and a ban from future Universal Animation events. In extreme cases, we reserve the right to legal action.</li>
@@ -16,6 +14,6 @@ export default function ConductPolicyPage(props: {currentPage : string}) {
                 <li>AnimeNEXT is an all-ages event, and attendees are asked to dress accordingly. AnimeNEXT staff reserve the right to ask an attendee to change clothing if it is deemed inappropriate or unsafe. See our dress code for more information.</li>
                 <li>For the safety of all our attendees, under absolutely no circumstances are bags to be left unattended at any time during the convention. Unattended bags may be removed from the premises at the staff’s discretion or taken to Lost & Found.</li>
             </ol>
-        </Fragment>        
+        </Fragment>
     );
 }

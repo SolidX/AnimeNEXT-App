@@ -1,14 +1,12 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "../components/Navigation";
 import Card from "../components/Card";
 import Hyatt1F from "../assets/hyatt1stfloor.jpg";
 import Hyatt2F from "../assets/hyatt2ndfloor.jpg";
 import HyattLL from "../assets/hyattlowerlevel.jpg";
 
-export default function MapsPage(props: {currentPage: string}) {
+export default function MapsPage() {
     return (
         <Fragment>
-            <Navigation currentPage={props.currentPage} />
             <h1 className="mb-1">Maps</h1>
             <h2 className="mb-1">Hyatt Regency New Brunswick</h2>
             <Card

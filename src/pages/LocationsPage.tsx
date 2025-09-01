@@ -1,11 +1,10 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "../components/Navigation";
 import Card from "../components/Card";
 import NJCEC from "../assets/NJCEC.jpg";
 import Hyatt from "../assets/HRNB.jpg";
 import { AnchorButtonTypes, type AnchorButtonProps } from "../components/components";
 
-export default function LocationsPage(props: {currentPage: string}) {
+export default function LocationsPage() {
     const njcecLinks : AnchorButtonProps[] = [
         {
             type: AnchorButtonTypes.Primary,
@@ -38,9 +37,9 @@ export default function LocationsPage(props: {currentPage: string}) {
 
     return (
         <Fragment>
-            <Navigation currentPage={props.currentPage} />
             <h1 className="mb-1">Locations</h1>
             <Card
+                key={1}
                 image={NJCEC}
                 title="New Jersey Convention & Expo Center (NJCEC)"
                 subtitle="97 Sunfield Ave, Edison, NJ 08837"
@@ -48,6 +47,7 @@ export default function LocationsPage(props: {currentPage: string}) {
                 buttons={njcecLinks}
             />
             <Card
+                key={2}
                 image={Hyatt}
                 title="Hyatt Regency New Brunswick"
                 subtitle="2 Albany St, New Brunswick, NJ 08901"

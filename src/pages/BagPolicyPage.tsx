@@ -1,10 +1,8 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "../components/Navigation";
 
-export default function BagPolicyPage(props: {currentPage : string}) {
+export default function BagPolicyPage() {
     return (
         <Fragment>
-            <Navigation currentPage={props.currentPage} />
             <h1 className="mb-1">Bag Policy</h1>
             <h2 className="mb-1">Around the Convention</h2>
             <ul>
@@ -49,6 +47,6 @@ export default function BagPolicyPage(props: {currentPage : string}) {
                 <li>All bags will be searched before entry in the Otaku Dance Party or Cosplay Formal.</li>
                 <li>Outside food and drink are not permitted in the Otaku Dance Party. Please eat or drink what you have in your bag before entering the dance. AnimeNEXT is not responsible for food and drink abandoned outside of the dance in order to pass bag checks.</li>
             </ol>
-        </Fragment>        
+        </Fragment>
     );
 }

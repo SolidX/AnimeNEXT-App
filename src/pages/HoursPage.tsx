@@ -1,10 +1,9 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "../components/Navigation";
 import Alert from "../components/Alert";
 import { AlertTypes, type AccordionItemDetails } from "../components/components";
 import Accordion from "../components/Accordion";
 
-export default function HoursPage(props: {currentPage: string}) {
+export default function HoursPage() {
     const accordianID = "eventHours";
 
     const arcadeHours = (
@@ -466,7 +465,6 @@ export default function HoursPage(props: {currentPage: string}) {
 
     return (
         <Fragment>
-            <Navigation currentPage={props.currentPage} />
             <h1 className="mb-1">Hours of Operation</h1>
             <Accordion
                 accordionId={accordianID}

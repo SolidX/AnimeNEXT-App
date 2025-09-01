@@ -1,6 +1,7 @@
+import type { To } from "react-router";
 import NavLink from "./NavLink";
 
-export default function NavItem(props: {text: string; url: string | undefined; currentPage: string | undefined; isDropdown: boolean; subItems?: {text: string; url: string | undefined}[]; }) {
+export default function NavItem(props: {text: string; url: To; currentPage?: string; isDropdown: boolean; subItems?: {text: string; url: To}[]; }) {
     if (props.isDropdown === true) {
         const dropdownItems = props.subItems === undefined ? undefined : props.subItems.map((item) => {
             return (

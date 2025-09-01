@@ -1,11 +1,10 @@
 import { Fragment } from "react/jsx-runtime";
-import Navigation from "../components/Navigation";
 import type { ExhibitorDetails } from "../components/components";
 
-export default function ExhibitorsListPage(props: {currentPage: string; title: string; exhibitors: ExhibitorDetails[]}) {
+export default function ExhibitorsListPage(props: {title: string, exhibitors: ExhibitorDetails[]}) {
     const exhibitorList = props.exhibitors.map((e) => {
         return (
-            <li className="list-group-item">
+            <li key={e.Booth} className="list-group-item">
                 <div className="fw-bold">{e.Name}</div>
                 <div>Booth #{e.Booth}</div>
             </li>
@@ -15,7 +14,6 @@ export default function ExhibitorsListPage(props: {currentPage: string; title: s
     //TODO: Make this list sortable by Name at some point 
     return (
         <Fragment>
-            <Navigation currentPage={props.currentPage} />
             <h1 className="mb-1">{props.title}</h1>
             <ul className="list-group" id="exhibitors">
                 {exhibitorList}
