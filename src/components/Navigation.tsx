@@ -1,7 +1,7 @@
 import NavBranding from "./NavBranding";
 import NavItem from "./NavItem";
 
-export default function Navigation(props: {currentPage: string}) {
+export default function Navigation(props: {currentPage: string, navHandler: (p : string) => void}) {
     const policies : {text: string; url: string}[] = [
         {text: "General Conduct Policy", url: "policies/conduct"},
         {text: "Dress Code", url: "policies/dresscode"},
@@ -18,16 +18,16 @@ export default function Navigation(props: {currentPage: string}) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <NavItem text={"Home"} url={"/"} currentPage={props.currentPage} isDropdown={false} />
-                        <NavItem text={"Hours"} url={"/hours"} currentPage={props.currentPage} isDropdown={false} />
-                        <NavItem text={"Maps"} url={"/maps"} currentPage={props.currentPage} isDropdown={false} />
-                        <NavItem text={"Schedule"} url={"/schedule"} currentPage={props.currentPage} isDropdown={false} />
-                        <NavItem text={"Location"} url={"/location"} currentPage={props.currentPage} isDropdown={false} />
-                        <NavItem text={"Shuttles"} url={"/shuttles"} currentPage={props.currentPage} isDropdown={false} />
-                        <NavItem text={"Artists Alley"} url={"/artistsalley"} currentPage={props.currentPage} isDropdown={false} />
-                        <NavItem text={"Dealers' Room"} url={"/dealersroom"} currentPage={props.currentPage} isDropdown={false} />
-                        <NavItem text={"Policies"} url={""} currentPage={props.currentPage} isDropdown={true} subItems={policies} />
-                        <NavItem text={"About"} url={"/about"} currentPage={props.currentPage} isDropdown={false} />
+                        <NavItem text={"Home"} url={"/"} currentPage={props.currentPage} isDropdown={false} onNav={props.navHandler}/>
+                        <NavItem text={"Hours"} url={"/hours"} currentPage={props.currentPage} isDropdown={false} onNav={props.navHandler}/>
+                        <NavItem text={"Maps"} url={"/maps"} currentPage={props.currentPage} isDropdown={false} onNav={props.navHandler}/>
+                        <NavItem text={"Schedule"} url={"/schedule"} currentPage={props.currentPage} isDropdown={false} onNav={props.navHandler}/>
+                        <NavItem text={"Location"} url={"/location"} currentPage={props.currentPage} isDropdown={false} onNav={props.navHandler}/>
+                        <NavItem text={"Shuttles"} url={"/shuttles"} currentPage={props.currentPage} isDropdown={false} onNav={props.navHandler}/>
+                        <NavItem text={"Artists Alley"} url={"/artistsalley"} currentPage={props.currentPage} isDropdown={false} onNav={props.navHandler}/>
+                        <NavItem text={"Dealers' Room"} url={"/dealersroom"} currentPage={props.currentPage} isDropdown={false} onNav={props.navHandler}/>
+                        <NavItem text={"Policies"} url={""} currentPage={props.currentPage} isDropdown={true} subItems={policies} onNav={props.navHandler}/>
+                        <NavItem text={"About"} url={"/about"} currentPage={props.currentPage} isDropdown={false} onNav={props.navHandler}/>
                     </ul>
                 </div>
             </div>

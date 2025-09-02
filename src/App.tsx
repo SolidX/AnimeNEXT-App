@@ -17,14 +17,17 @@ import artists from './assets/artists.json'
 import dealers from './assets/dealers.json'
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("About");
+  const [currentPage, setCurrentPage] = useState("Home");
 
-  //TODO: update currentPage on page click, surprisingly this never worked in the original version
+  function navHandler(nextPage : string) {
+    setCurrentPage(nextPage);
+  }
+
   return (
     <BrowserRouter>
-      <Navigation currentPage={currentPage} />
+      <Navigation currentPage={currentPage} navHandler={navHandler} />
       <Routes>
-        <Route path="/" element={<HomePage title="Welcome to AnimeNEXT 2023!" />} />
+        <Route index={true} element={<HomePage title="Welcome to AnimeNEXT 2023!" />} />
         <Route path="/hours" element={<HoursPage />} />
         <Route path="/maps" element={<MapsPage />} />
         <Route path="/schedule" element={<SchedulePage />} />

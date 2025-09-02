@@ -1,7 +1,7 @@
 import type { To } from "react-router";
 import NavLink from "./NavLink";
 
-export default function NavItem(props: {text: string; url: To; currentPage?: string; isDropdown: boolean; subItems?: {text: string; url: To}[]; }) {
+export default function NavItem(props: {text: string, url: To, currentPage?: string, isDropdown: boolean, subItems?: {text: string; url: To}[], onNav?: (p : string) => void}) {
     if (props.isDropdown === true) {
         const dropdownItems = props.subItems === undefined ? undefined : props.subItems.map((item) => {
             return (
@@ -11,6 +11,7 @@ export default function NavItem(props: {text: string; url: To; currentPage?: str
                         url={item.url}
                         isCurrentPage={props.currentPage == item.text}
                         isDropdown={true}
+                        onNav={props.onNav}
                     />
                 </li>
             );
@@ -32,6 +33,7 @@ export default function NavItem(props: {text: string; url: To; currentPage?: str
                     url={props.url}
                     isCurrentPage={props.currentPage == props.text}
                     isDropdown={false}
+                    onNav={props.onNav}
                 />
             </li>
         );
