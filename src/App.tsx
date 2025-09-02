@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import HoursPage from './pages/HoursPage';
 import MapsPage from './pages/MapsPage';
+import SchedulePage from './pages/SchedulePage';
 import LocationsPage from './pages/LocationsPage';
 import ShuttlesPage from './pages/ShuttlesPage';
 import ExhibitorsListPage from './pages/ExhibitorsListPage';
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<HomePage title="Welcome to AnimeNEXT 2023!" />} />
         <Route path="/hours" element={<HoursPage />} />
         <Route path="/maps" element={<MapsPage />} />
+        <Route path="/schedule" element={<SchedulePage />} />
         <Route path="/location" element={<LocationsPage />} />
         <Route path="/shuttles" element={<ShuttlesPage />} />
         <Route path="/artistsalley" element={<ExhibitorsListPage title="Artists Alley" exhibitors={artists} />} />

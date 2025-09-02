@@ -1,3 +1,4 @@
+import type { DateTime } from "luxon";
 import type { ReactElement } from "react";
 
 export const AlertTypes = {
@@ -46,3 +47,40 @@ export type AnchorButtonProps = {
     text: string | ReactElement,
     target?: string
 }
+
+export const BadgeTypes = {
+    Primary: "text-bg-primary",
+    Secondary: "text-bg-secondary",
+    Success: "text-bg-success",
+    Danger: "text-bg-danger",
+    Warning: "text-bg-warning",
+    Info: "text-bg-info",
+    Light: "text-bg-light",
+    Dark: "text-bg-dark",
+    Link: "text-bg-link"
+} as const;
+
+export type BadgeType = typeof BadgeTypes[keyof typeof BadgeTypes];
+
+export type RawScheduleEvent = {
+    Start: string,
+    End: string,
+    Location: string,
+    Type: string,
+    Name: string,
+    Description: string
+};
+
+export type RawSchedule = {
+    updatedAt: number,
+    events: RawScheduleEvent[]
+};
+
+export type ScheduleEvent = {
+    Start: DateTime,
+    End: DateTime,
+    Location: string,
+    Type?: string,
+    Name: string,
+    Description: string
+};
