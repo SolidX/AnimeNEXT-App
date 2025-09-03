@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router';
 import Navigation from './components/Navigation';
 import HomePage from './pages/HomePage';
@@ -15,13 +15,31 @@ import BagPolicyPage from './pages/BagPolicyPage';
 import DressCodePage from './pages/DressCodePage';
 import artists from './assets/artists.json'
 import dealers from './assets/dealers.json'
+import Offline from './components/Offline';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("Home");
+  const [currentPage, setCurrentPage] = useState<string>("Home");
+  const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
 
   function navHandler(nextPage : string) {
     setCurrentPage(nextPage);
   }
+
+  function updateNetworkStatus() {
+    setIsOnline(navigator.onLine);
+  }
+
+  useEffect(() => {
+    window.addEventListener('online', updateNetworkStatus);
+    window.addEventListener('offline', updateNetworkStatus);
+    window.addEventListener('load', updateNetworkStatus);
+
+    return () => {
+      window.removeEventListener('online', updateNetworkStatus);
+      window.removeEventListener('offline', updateNetworkStatus);
+      window.removeEventListener('load', updateNetworkStatus);
+    }
+  }, [navigator.onLine]);
 
   return (
     <BrowserRouter>
@@ -41,6 +59,10 @@ function App() {
         <Route path="/policies/cosplayprops" element={<CosplayPropsPolicyPage />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
+      {
+        //BUG: Checking the network status using the navigator API doesn't work in Firefox Desktop for some reason in both the orignal and refactored version of the app
+        isOnline !== true && <Offline />
+      }
     </BrowserRouter>
   );
 }
