@@ -1,8 +1,8 @@
 import { Fragment } from "react/jsx-runtime";
 import Alert from "../components/Alert";
-import { AlertTypes } from "../components/components";
+import { AlertTypes, type HomePageProps } from "../components/components";
 
-export default function HomePage(props: {title: string}) {
+export default function HomePage(props: HomePageProps) {
     const socialMedia = (
         <Fragment>
             <p>Find us on social media and use our official hashtag, <a href="#" className="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">#AnimeNEXT</a>!

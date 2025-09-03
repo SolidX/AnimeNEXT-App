@@ -1,5 +1,6 @@
 import type { DateTime } from "luxon";
 import type { ReactElement } from "react";
+import type { To } from "react-router";
 
 export const AlertTypes = {
     Primary: "alert-primary",
@@ -41,13 +42,6 @@ export const AnchorButtonTypes = {
 
 export type AnchorButtonType = typeof AnchorButtonTypes[keyof typeof AnchorButtonTypes];
 
-export type AnchorButtonProps = {
-    type: AnchorButtonType,
-    url: string,
-    text: string | ReactElement,
-    target?: string
-}
-
 export const BadgeTypes = {
     Primary: "text-bg-primary",
     Secondary: "text-bg-secondary",
@@ -84,3 +78,63 @@ export type ScheduleEvent = {
     Name: string,
     Description: string
 };
+
+//#region Component Props Types
+export type AccordionProps = {
+    accordionId: string,
+    items: AccordionItemDetails[]
+};
+
+export type AccordionItemProps = {
+    details: AccordionItemDetails
+};
+
+export type AlertProps = {
+    type: AlertType,
+    heading?: string,
+    content?: string | ReactElement
+};
+
+export type AnchorButtonProps = {
+    type: AnchorButtonType,
+    url: string,
+    text: string | ReactElement,
+    target?: string
+};
+
+export type NavigationProps = {
+    currentPage: string,
+    navHandler: (p : string) => void
+};
+
+export type NavItemProps = {
+    text: string,
+    url: To,
+    currentPage?: string,
+    isDropdown: boolean,
+    subItems?: {
+        text: string;
+        url: To
+    }[],
+    onNav?: (p : string) => void
+};
+
+export type NavLinkProps = {
+    isCurrentPage: boolean,
+    isDropdown: boolean,
+    text: string;
+    url: To,
+    onNav?: (p : string) => void
+};
+//#endregion
+
+//#region Page Props
+export type ExhibitorListPageProps = {
+    title: string,
+    exhibitors: ExhibitorDetails[]
+};
+
+export type HomePageProps = {
+    title: string
+};
+//#endregion

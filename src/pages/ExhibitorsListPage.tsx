@@ -1,7 +1,7 @@
 import { Fragment } from "react/jsx-runtime";
-import type { ExhibitorDetails } from "../components/components";
+import type { ExhibitorListPageProps } from "../components/components";
 
-export default function ExhibitorsListPage(props: {title: string, exhibitors: ExhibitorDetails[]}) {
+export default function ExhibitorsListPage(props: ExhibitorListPageProps) {
     const exhibitorList = props.exhibitors.map((e) => {
         return (
             <li key={e.Booth} className="list-group-item">

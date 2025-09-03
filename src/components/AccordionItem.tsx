@@ -1,6 +1,6 @@
-import type { AccordionItemDetails } from "./components";
+import type { AccordionItemProps } from "./components";
 
-export default function AccordionItem(props: {details: AccordionItemDetails}) {
+export default function AccordionItem(props: AccordionItemProps) {
     return (
         <div className="accordion-item">
             <h2 className="accordion-header">

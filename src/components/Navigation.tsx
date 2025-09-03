@@ -1,7 +1,8 @@
+import type { NavigationProps } from "./components";
 import NavBranding from "./NavBranding";
 import NavItem from "./NavItem";
 
-export default function Navigation(props: {currentPage: string, navHandler: (p : string) => void}) {
+export default function Navigation(props: NavigationProps) {
     const policies : {text: string; url: string}[] = [
         {text: "General Conduct Policy", url: "policies/conduct"},
         {text: "Dress Code", url: "policies/dresscode"},

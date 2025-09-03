@@ -1,7 +1,7 @@
 import AccordionItem from "./AccordionItem";
-import type { AccordionItemDetails } from "./components";
+import type { AccordionProps } from "./components";
 
-export default function Accordion(props: {accordionId: string, items: AccordionItemDetails[]}) {
+export default function Accordion(props: AccordionProps) {
     const accordionItems = props.items.map((item) => {
         return (<AccordionItem key={item.itemId} details={item} />);
     });

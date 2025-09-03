@@ -1,6 +1,7 @@
-import { Link, type To } from "react-router";
+import { Link } from "react-router";
+import type { NavLinkProps } from "./components";
 
-export default function NavLink(props: { isCurrentPage: boolean, isDropdown: boolean, text: string; url: To, onNav?: (p : string) => void }) {
+export default function NavLink(props: NavLinkProps) {
     if (props.isCurrentPage === true) {
         return (
             <Link

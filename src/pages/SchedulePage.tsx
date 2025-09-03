@@ -69,7 +69,7 @@ export default function SchedulePage() {
 
     const scheduleDays : AccordionItemDetails[] = new Array<AccordionItemDetails>();
 
-    parsedEvents.forEach((events, day, map) => {
+    parsedEvents.forEach((events, day) => {
         const scheduleDay = DateTime.fromFormat(day, "EEEE (L/d/yyyy)");
         const expandDay = scheduleDay.hasSame(DateTime.now(), 'day');
 
