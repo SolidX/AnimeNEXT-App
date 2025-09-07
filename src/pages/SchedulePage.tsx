@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent, type ReactElement } from "react";
+import { useState, useRef, useEffect, type ChangeEvent, type ReactElement } from "react";
 import { Fragment } from "react/jsx-runtime";
 import Accordion from "../components/Accordion";
 import Badge from "../components/Badge";
@@ -32,11 +32,16 @@ function eventTypeColorClassMapping (t : string) {
 export default function SchedulePage() {
     const [eventTypeFilter, setEventTypeFilter] = useState<string | undefined>(undefined);
     const [eventLocationFilter, setEventLocationFilter] = useState<string | undefined>(undefined);
+    const scrollToRef = useRef<HTMLLIElement | null>(null);
 
     //parse raw schedule in to days and their events
     const parsedEvents = new Map<string, Array<ScheduleEvent>>();
     const allEventLocations = new Set<string>();
     const allEventTypes = new Set<string>();
+    const allEventStartTimes = new Map<string, Set<number>>();
+
+    const now = DateTime.now();
+    const nowMillis = now.toMillis();
 
     Schedule.events.forEach((item : RawScheduleEvent) => {
         const startDt = DateTime.fromFormat(item.Start, "L/d/yyyy H:mm");
@@ -45,6 +50,9 @@ export default function SchedulePage() {
         
         if (!parsedEvents.has(key)) {
             parsedEvents.set(key, new Array<ScheduleEvent>());
+        }
+        if (!allEventStartTimes.has(key)) {
+            allEventStartTimes.set(key, new Set<number>());
         }
 
         allEventLocations.add(item.Location);
@@ -55,6 +63,7 @@ export default function SchedulePage() {
             End: endDt
         };
         parsedEvents.get(key)!.push(mapItem);
+        allEventStartTimes.get(key)!.add(startDt.toMillis());
     });
     
     function eventTypeFilterHandler(evt : ChangeEvent<HTMLSelectElement>) {
@@ -71,10 +80,17 @@ export default function SchedulePage() {
 
     parsedEvents.forEach((events, day) => {
         const scheduleDay = DateTime.fromFormat(day, "EEEE (L/d/yyyy)");
-        const expandDay = scheduleDay.hasSame(DateTime.now(), 'day');
+        const isToday = scheduleDay.hasSame(now, 'day');
 
         const scheduleDayTimes = new Set<number>();
         const daysEvents = new Array<ReactElement>();
+
+        //Set a reference to events starting just before "now"
+        let scrollToTime : number | null = null;
+        if (isToday && scrollToTime == null) {
+            const schedTimes = [...allEventStartTimes.get(day)!, nowMillis].sort((a, b) => { return a - b; });
+            scrollToTime = schedTimes[Math.max(0, schedTimes.indexOf(nowMillis) - 1)];
+        }
 
         events.sort(compareEventsByTime);
         events.forEach((e) => {
@@ -98,7 +114,7 @@ export default function SchedulePage() {
 
             if (!scheduleDayTimes.has(eventStartMillis)) {
                 daysEvents.push((
-                    <li key={eventStartMillis} className="list-group-item list-group-item-secondary fw-bold">
+                    <li key={eventStartMillis} ref={scrollToTime == eventStartMillis ? scrollToRef : null} className="list-group-item list-group-item-secondary fw-bold">
                         {eventStartStr}
                     </li>
                 ));
@@ -108,7 +124,7 @@ export default function SchedulePage() {
             //Apply event type and location filters
             if ((eventTypeFilter === undefined || e.Type?.includes(eventTypeFilter)) && (eventLocationFilter === undefined || e.Location == eventLocationFilter)) {
                 daysEvents.push((
-                    <li key={eventStartMillis + e.Name} className="list-group-item scheduleItem">
+                    <li key={eventStartMillis.toString() + e.Name} className="list-group-item scheduleItem">
                         <h5 className="mb-1">{e.Name}</h5>
                         <div className="row h6">
                             <div className="col align-self-start text-wrap text-start">{eventStartStr} - {e.End.toFormat('hh:mm a')}</div>
@@ -125,17 +141,25 @@ export default function SchedulePage() {
             itemId: scheduleDay.toSeconds().toString(),
             header: day,
             parentId: "schedule",
-            isCollapsed: !expandDay,
+            isCollapsed: !isToday,
             content: (<ul className="list-group">{daysEvents}</ul>)
         });
     });
 
     const eventFilters = Array.from(allEventTypes).sort((a, b) => {
         return a.localeCompare(b);
-    }).map(x => (<option value={x}>{x}</option>));
+    }).map(x => (<option key={x} value={x}>{x}</option>));
     const locationFilters = Array.from(allEventLocations).sort((a, b) => {
         return a.localeCompare(b);
-    }).map(x =>(<option value={x}>{x}</option>));
+    }).map(x =>(<option key={x} value={x}>{x}</option>));
+
+    useEffect(() => {
+        //when scrollToRef is set, automatically scroll to that cluster of schedule items        
+        if(scrollToRef.current) {
+            //BUG: Scrolls too far due to filter options being always on top
+            scrollToRef.current.scrollIntoView();
+        }
+    }, []);
 
     return (
         <Fragment>
