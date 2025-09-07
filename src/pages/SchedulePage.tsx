@@ -154,6 +154,8 @@ export default function SchedulePage() {
     }).map(x =>(<option key={x} value={x}>{x}</option>));
 
     useEffect(() => {
+        document.title = "Convention Schedule | AnimeNEXT";
+
         //when scrollToRef is set, automatically scroll to that cluster of schedule items        
         if(scrollToRef.current) {
             //BUG: Scrolls too far due to filter options being always on top

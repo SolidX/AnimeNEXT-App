@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import { Fragment } from "react/jsx-runtime";
 
 export default function BagPolicyPage() {
+    useEffect(() => {
+        document.title = "Bag Policy - Policies | AnimeNEXT";
+    }, []);
+    
     return (
         <Fragment>
             <h1 className="mb-1">Bag Policy</h1>

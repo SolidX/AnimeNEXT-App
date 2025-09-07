@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { Fragment } from "react/jsx-runtime";
 import Bikini from "../assets/dresscode_bikini.png";
 import Trunks from "../assets/dresscode_trunks.png";
 
 export default function DressCodePage() {
+    useEffect(() => {
+        document.title = "Dress Code - Policies | AnimeNEXT";
+    }, []);
+
     return (
         <Fragment>
             <h1 className="mb-1">Dress Code</h1>

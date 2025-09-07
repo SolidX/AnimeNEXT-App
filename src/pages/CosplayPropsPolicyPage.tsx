@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import { Fragment } from "react/jsx-runtime";
 
 export default function CosplayPropsPolicyPage() {
+    useEffect(() => {
+        document.title = "Cosplay, Props, and Sign Policy - Policies | AnimeNEXT";
+    }, []);
+
     return (
         <Fragment>
             <h1 className="mb-1">Cosplay, Props, &amp; Sign Policy</h1>

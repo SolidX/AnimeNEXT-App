@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Fragment } from "react/jsx-runtime";
 import Alert from "../components/Alert";
 import { AlertTypes, type HomePageProps } from "../components/components";
@@ -30,6 +31,10 @@ export default function HomePage(props: HomePageProps) {
             <p className="mb-0">Don't forget to eat, sleep, wash up, and hydrate!</p>
         </Fragment>
     );
+
+    useEffect(() => {
+        document.title = "AnimeNEXT Program Guide";
+    }, []);
 
     return (
         <Fragment>

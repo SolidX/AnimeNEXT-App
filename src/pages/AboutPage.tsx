@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import { Fragment } from "react/jsx-runtime";
 
 export default function AboutPage() {
+    useEffect(() => {
+        document.title = "About the App | AnimeNEXT";
+    }, []);
+
     return (
         <Fragment>
             <h1 className="mb-1">About the App</h1>

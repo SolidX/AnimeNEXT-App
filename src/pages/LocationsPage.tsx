@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Fragment } from "react/jsx-runtime";
 import Card from "../components/Card";
 import NJCEC from "../assets/NJCEC.jpg";
@@ -34,6 +35,10 @@ export default function LocationsPage() {
             target: "_blank"
         }
     ];
+
+    useEffect(() => {
+        document.title = "Location | AnimeNEXT";
+    }, []);
 
     return (
         <Fragment>

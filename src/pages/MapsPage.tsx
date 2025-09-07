@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Fragment } from "react/jsx-runtime";
 import Card from "../components/Card";
 import Hyatt1F from "../assets/hyatt1stfloor.jpg";
@@ -5,6 +6,10 @@ import Hyatt2F from "../assets/hyatt2ndfloor.jpg";
 import HyattLL from "../assets/hyattlowerlevel.jpg";
 
 export default function MapsPage() {
+    useEffect(() => {
+        document.title = "Maps | AnimeNEXT";
+    }, []);
+
     return (
         <Fragment>
             <h1 className="mb-1">Maps</h1>

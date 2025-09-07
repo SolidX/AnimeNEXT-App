@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Fragment } from "react/jsx-runtime";
 import Alert from "../components/Alert";
 import { AlertTypes, type AccordionItemDetails } from "../components/components";
@@ -462,6 +463,10 @@ export default function HoursPage() {
             )
         }
     ];
+
+    useEffect(() => {
+        document.title = "Hours of Operation | AnimeNEXT";
+    }, []);
 
     return (
         <Fragment>

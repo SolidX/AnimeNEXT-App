@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { Fragment } from "react/jsx-runtime";
 import Alert from "../components/Alert";
 import { AlertTypes } from "../components/components";
 
 export default function ShuttlesPage() {
+    useEffect(() => {
+        document.title = "Shuttles | AnimeNEXT";
+    }, []);
+
     return (
         <Fragment>
             <h1 className="mb-1">Shuttles</h1>

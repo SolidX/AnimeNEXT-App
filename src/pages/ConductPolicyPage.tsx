@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import { Fragment } from "react/jsx-runtime";
 
 export default function ConductPolicyPage() {
+    useEffect(() => {
+        document.title = "General Conduct - Policies | AnimeNEXT";
+    }, []);
+
     return (
         <Fragment>
             <h1 className="mb-1">General Conduct</h1>
