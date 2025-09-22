@@ -137,4 +137,8 @@ export type ExhibitorListPageProps = {
 export type HomePageProps = {
     title: string
 };
+
+export type SchedulePageProps = {
+    schedule: RawSchedule | null
+};
 //#endregion

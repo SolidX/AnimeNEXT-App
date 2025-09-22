@@ -2,9 +2,8 @@ import { useState, useRef, useEffect, type ChangeEvent, type ReactElement } from
 import { Fragment } from "react/jsx-runtime";
 import Accordion from "../components/Accordion";
 import Badge from "../components/Badge";
-import { BadgeTypes, type AccordionItemDetails, type RawScheduleEvent, type ScheduleEvent } from "../components/components";
+import { BadgeTypes, type AccordionItemDetails, type RawScheduleEvent, type ScheduleEvent, type SchedulePageProps } from "../components/components";
 import { DateTime } from "luxon";
-import Schedule from "../assets/schedule.json";
 
 function compareEventsByTime(a : ScheduleEvent, b : ScheduleEvent) {
     return a.Start.toMillis() - b.Start.toMillis()
@@ -29,7 +28,7 @@ function eventTypeColorClassMapping (t : string) {
     }
 }
 
-export default function SchedulePage() {
+export default function SchedulePage(props : SchedulePageProps) {
     const [eventTypeFilter, setEventTypeFilter] = useState<string | undefined>(undefined);
     const [eventLocationFilter, setEventLocationFilter] = useState<string | undefined>(undefined);
     const scrollToRef = useRef<HTMLLIElement | null>(null);
@@ -43,7 +42,8 @@ export default function SchedulePage() {
     const now = DateTime.now();
     const nowMillis = now.toMillis();
 
-    Schedule.events.forEach((item : RawScheduleEvent) => {
+    const rawScheduleEvents = props.schedule !== null ? props.schedule.events : [];
+    rawScheduleEvents.forEach((item : RawScheduleEvent) => {
         const startDt = DateTime.fromFormat(item.Start, "L/d/yyyy H:mm");
         const endDt = DateTime.fromFormat(item.End, "L/d/yyyy H:mm");
         const key = startDt.toFormat("EEEE (L/d/yyyy)")!;
@@ -67,12 +67,10 @@ export default function SchedulePage() {
     });
     
     function eventTypeFilterHandler(evt : ChangeEvent<HTMLSelectElement>) {
-        console.log(evt.target.value);
         setEventTypeFilter(evt.target.value !== "*" ? evt.target.value : undefined);
     }
 
     function eventLocationFilterHandler(evt : ChangeEvent<HTMLSelectElement>) {
-        console.log(evt.target.value);
         setEventLocationFilter(evt.target.value !== "*" ? evt.target.value : undefined);
     }
 
@@ -163,10 +161,15 @@ export default function SchedulePage() {
         }
     }, []);
 
+    let lastUpdated = (<span className="placeholder-wave"></span>);
+    if (props.schedule !== null) {
+        lastUpdated = (<span>{DateTime.fromSeconds(props.schedule.updatedAt).toFormat("L/d/yyyy hh:mm a")}</span>);
+    }
+
     return (
         <Fragment>
             <h1 className="mb-1">Schedule</h1>
-            <small className="mb-3">Schedule as of <span id="schedUpdatedAt">{DateTime.fromSeconds(Schedule.updatedAt).toFormat("L/d/yyyy hh:mm a")}</span></small>
+            <small className="mb-3">Schedule as of {lastUpdated}</small>
             <div className="sticky-top mb-3 bg-body py-2" style={{zIndex: 990}}>
                 <div className="input-group mb-1">
                     <div className="input-group-text">Event Type</div>
@@ -183,6 +186,7 @@ export default function SchedulePage() {
                     </select>
                 </div>
             </div>
+            
             <Accordion
                 accordionId="schedule"
                 items={scheduleDays}
