@@ -79,6 +79,13 @@ export type ScheduleEvent = {
     Description: string
 };
 
+export const ExhibitorListTypes = {
+    Artists: "artists",
+    Dealers: "dealers"
+} as const;
+
+export type ExhibitorListType = typeof ExhibitorListTypes[keyof typeof ExhibitorListTypes];
+
 //#region Component Props Types
 export type AccordionProps = {
     accordionId: string,
@@ -130,15 +137,11 @@ export type NavLinkProps = {
 
 //#region Page Props
 export type ExhibitorListPageProps = {
+    listType: ExhibitorListType,
     title: string,
-    exhibitors: ExhibitorDetails[]
 };
 
 export type HomePageProps = {
     title: string
-};
-
-export type SchedulePageProps = {
-    schedule: RawSchedule | null
 };
 //#endregion

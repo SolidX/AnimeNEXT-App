@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import type { NavigationProps } from "./components";
 import NavBranding from "./NavBranding";
 import NavItem from "./NavItem";
@@ -10,11 +11,14 @@ export default function Navigation(props: NavigationProps) {
         {text: "Cosplay, Props, & Sign Policy", url: "policies/cosplayprops"},
     ];
 
+    const hamburgerToggle = useRef(null);
+
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
                 <NavBranding />
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                {/* BUG: Menu doesn't close on navigation */}
+                <button ref={hamburgerToggle} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">

@@ -2,8 +2,9 @@ import { useState, useRef, useEffect, type ChangeEvent, type ReactElement } from
 import { Fragment } from "react/jsx-runtime";
 import Accordion from "../components/Accordion";
 import Badge from "../components/Badge";
-import { BadgeTypes, type AccordionItemDetails, type RawScheduleEvent, type ScheduleEvent, type SchedulePageProps } from "../components/components";
+import { BadgeTypes, type AccordionItemDetails, type RawSchedule, type RawScheduleEvent, type ScheduleEvent } from "../components/components";
 import { DateTime } from "luxon";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 function compareEventsByTime(a : ScheduleEvent, b : ScheduleEvent) {
     return a.Start.toMillis() - b.Start.toMillis()
@@ -28,7 +29,8 @@ function eventTypeColorClassMapping (t : string) {
     }
 }
 
-export default function SchedulePage(props : SchedulePageProps) {
+export default function SchedulePage() {
+    const [rawSchedule, setSchedule] = useState<RawSchedule | null>(null);
     const [eventTypeFilter, setEventTypeFilter] = useState<string | undefined>(undefined);
     const [eventLocationFilter, setEventLocationFilter] = useState<string | undefined>(undefined);
     const scrollToRef = useRef<HTMLLIElement | null>(null);
@@ -42,7 +44,7 @@ export default function SchedulePage(props : SchedulePageProps) {
     const now = DateTime.now();
     const nowMillis = now.toMillis();
 
-    const rawScheduleEvents = props.schedule !== null ? props.schedule.events : [];
+    const rawScheduleEvents = rawSchedule !== null ? rawSchedule.events : [];
     rawScheduleEvents.forEach((item : RawScheduleEvent) => {
         const startDt = DateTime.fromFormat(item.Start, "L/d/yyyy H:mm");
         const endDt = DateTime.fromFormat(item.End, "L/d/yyyy H:mm");
@@ -154,6 +156,17 @@ export default function SchedulePage(props : SchedulePageProps) {
     useEffect(() => {
         document.title = "Convention Schedule | AnimeNEXT";
 
+        fetch('schedule.json').then<RawSchedule, never>((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+
+            //TODO: Error handling
+            throw new Error(`Failed to get dealer data. Status: ${response.status}`);
+        }).then((data) => {
+            setSchedule(data);
+        });
+
         //when scrollToRef is set, automatically scroll to that cluster of schedule items        
         if(scrollToRef.current) {
             //BUG: Scrolls too far due to filter options being always on top
@@ -161,15 +174,15 @@ export default function SchedulePage(props : SchedulePageProps) {
         }
     }, []);
 
-    let lastUpdated = (<span className="placeholder-wave"></span>);
-    if (props.schedule !== null) {
-        lastUpdated = (<span>{DateTime.fromSeconds(props.schedule.updatedAt).toFormat("L/d/yyyy hh:mm a")}</span>);
+    let lastUpdated = (<span className="placeholder col-1"></span>);
+    if (rawSchedule !== null) {
+        lastUpdated = (<span>{DateTime.fromSeconds(rawSchedule.updatedAt).toFormat("L/d/yyyy hh:mm a")}</span>);
     }
 
     return (
         <Fragment>
             <h1 className="mb-1">Schedule</h1>
-            <small className="mb-3">Schedule as of {lastUpdated}</small>
+            <small className="mb-3 placeholder-glow">Schedule as of {lastUpdated}</small>
             <div className="sticky-top mb-3 bg-body py-2" style={{zIndex: 990}}>
                 <div className="input-group mb-1">
                     <div className="input-group-text">Event Type</div>
@@ -187,10 +200,14 @@ export default function SchedulePage(props : SchedulePageProps) {
                 </div>
             </div>
             
-            <Accordion
-                accordionId="schedule"
-                items={scheduleDays}
-            />
+            {
+                scheduleDays.length > 0 ?
+                    <Accordion
+                        accordionId="schedule"
+                        items={scheduleDays}
+                    /> :
+                    <LoadingSpinner />
+            }
         </Fragment>
     );
 }
