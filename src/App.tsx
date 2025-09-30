@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router';
+import { Collapse } from "bootstrap";
 import Navigation from './components/Navigation';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -21,7 +22,8 @@ function App() {
   const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
   
   function navHandler(nextPage : string) {
-    setCurrentPage(nextPage);
+    Collapse.getOrCreateInstance("#siteNavigation").hide(); //Hide nav menu on mobile
+    setCurrentPage(nextPage);    
   }
 
   function updateNetworkStatus() {
