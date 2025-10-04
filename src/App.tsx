@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router';
 import { Collapse } from "bootstrap";
 import Navigation from './components/Navigation';
@@ -20,9 +20,12 @@ import { ExhibitorListTypes } from './components/components';
 function App() {
   const [currentPage, setCurrentPage] = useState<string>("Home");
   const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
+  const siteNavRef = useRef<HTMLDivElement | null>(null);
   
   function navHandler(nextPage : string) {
-    Collapse.getOrCreateInstance("#siteNavigation").hide(); //Hide nav menu on mobile
+    if (siteNavRef.current !== null) {
+      Collapse.getOrCreateInstance(siteNavRef.current).hide(); //Hide nav menu on mobile
+    }
     setCurrentPage(nextPage);    
   }
 
@@ -44,7 +47,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navigation currentPage={currentPage} navHandler={navHandler} />
+      <Navigation currentPage={currentPage} navHandler={navHandler} siteNavRef={siteNavRef} />
       <Routes>
         <Route index={true} element={<HomePage title="Welcome to AnimeNEXT 2023!" />} />
         <Route path="/hours" element={<HoursPage />} />

@@ -1,5 +1,5 @@
 import type { DateTime } from "luxon";
-import type { ReactElement } from "react";
+import type { ReactElement, RefObject } from "react";
 import type { To } from "react-router";
 
 export const AlertTypes = {
@@ -111,7 +111,8 @@ export type AnchorButtonProps = {
 
 export type NavigationProps = {
     currentPage: string,
-    navHandler: (p : string) => void
+    navHandler: (p : string) => void,
+    siteNavRef: RefObject<HTMLDivElement | null>
 };
 
 export type NavItemProps = {

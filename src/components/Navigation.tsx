@@ -17,7 +17,7 @@ export default function Navigation(props: NavigationProps) {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavigation" aria-controls="siteNavigation" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="siteNavigation">
+                <div ref={props.siteNavRef} className="collapse navbar-collapse" id="siteNavigation">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <NavItem text={"Home"} url={"/"} currentPage={props.currentPage} isDropdown={false} onNav={props.navHandler}/>
                         <NavItem text={"Hours"} url={"/hours"} currentPage={props.currentPage} isDropdown={false} onNav={props.navHandler}/>
