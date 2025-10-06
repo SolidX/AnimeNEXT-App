@@ -18,6 +18,7 @@ import Offline from './components/Offline';
 import { ExhibitorListTypes } from './components/components';
 
 function App() {
+  const [theme, setTheme] = useState<string>("auto");
   const [currentPage, setCurrentPage] = useState<string>("Home");
   const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
   const siteNavRef = useRef<HTMLDivElement | null>(null);
@@ -44,6 +45,15 @@ function App() {
       window.removeEventListener('load', updateNetworkStatus);
     }
   }, [navigator.onLine]);
+
+  //Choose light or dark mode based on user preference
+  //TODO: Allow users to set this eventually
+  useEffect(() => {
+    if (theme == 'auto') {
+      const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-bs-theme', preferredTheme);
+    }
+  }, []);
 
   return (
     <BrowserRouter>
