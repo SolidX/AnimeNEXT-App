@@ -30,6 +30,33 @@ export default function Navigation(props: NavigationProps) {
                         <NavItem text={"Policies"} url={""} currentPage={props.currentPage} isDropdown={true} subItems={policies} onNav={props.navHandler}/>
                         <NavItem text={"About"} url={"/about"} currentPage={props.currentPage} isDropdown={false} onNav={props.navHandler}/>
                     </ul>
+                    <ul className="navbar-nav d-flex flex-row me-1">
+                        <li><hr className="dropdown-divider d-lg-none" /></li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i className="bi bi-circle-half"></i>
+                                <span className="d-lg-none ms-2">Toggle theme</span>
+                            </a>
+                            <ul className="dropdown-menu">
+                                <li>
+                                    <a className={"dropdown-item " + (props.theme == "light" ? "active" : "")} href="#" onClick={() => props.themeChangeHandler("light")}>
+                                        <i className="bi bi-sun-fill"></i> Light
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className={"dropdown-item " + (props.theme == "dark" ? "active" : "")} href="#" onClick={() => props.themeChangeHandler("dark")}>
+                                        <i className="bi bi-moon-stars-fill"></i> Dark
+                                    </a>
+                                </li>
+                                <li><hr className="dropdown-divider" /></li>
+                                <li>
+                                    <a className={"dropdown-item " + (props.theme == "auto" ? "active" : "")} href="#" onClick={() => props.themeChangeHandler("auto")}>
+                                        <i className="bi bi-circle-half"></i> Auto
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>

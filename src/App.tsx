@@ -34,6 +34,10 @@ function App() {
     setIsOnline(navigator.onLine);
   }
 
+  function updateTheme(newTheme : string) {
+    setTheme(newTheme);
+  }
+
   useEffect(() => {
     window.addEventListener('online', updateNetworkStatus);
     window.addEventListener('offline', updateNetworkStatus);
@@ -46,18 +50,25 @@ function App() {
     }
   }, [navigator.onLine]);
 
-  //Choose light or dark mode based on user preference
-  //TODO: Allow users to set this eventually
   useEffect(() => {
     if (theme == 'auto') {
+      //Choose light or dark mode based on user preference
       const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       document.documentElement.setAttribute('data-bs-theme', preferredTheme);
+      return;
     }
-  }, []);
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  }, [theme]);
 
   return (
     <BrowserRouter>
-      <Navigation currentPage={currentPage} navHandler={navHandler} siteNavRef={siteNavRef} />
+      <Navigation 
+        theme={theme}
+        currentPage={currentPage}
+        navHandler={navHandler}
+        siteNavRef={siteNavRef}
+        themeChangeHandler={updateTheme}
+      />
       <Routes>
         <Route index={true} element={<HomePage title="Welcome to AnimeNEXT 2023!" />} />
         <Route path="/hours" element={<HoursPage />} />
@@ -74,7 +85,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
       </Routes>
       {
-        //BUG: Checking the network status using the navigator API doesn't work in Firefox Desktop for some reason in both the orignal and refactored version of the app
+        //BUG: Checking the network status using the navigator API doesn't work in Firefox Desktop. See: https://bugzilla.mozilla.org/show_bug.cgi?id=654579
         isOnline !== true && <Offline />
       }
     </BrowserRouter>

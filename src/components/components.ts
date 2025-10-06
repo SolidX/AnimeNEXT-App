@@ -113,6 +113,8 @@ export type NavigationProps = {
     currentPage: string,
     navHandler: (p : string) => void,
     siteNavRef: RefObject<HTMLDivElement | null>
+    theme: string,
+    themeChangeHandler: (newTheme : string) => void
 };
 
 export type NavItemProps = {
