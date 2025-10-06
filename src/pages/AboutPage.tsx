@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Fragment } from "react/jsx-runtime";
+import packageInfo from "../../package.json";
 
 export default function AboutPage() {
     useEffect(() => {
@@ -23,7 +24,7 @@ export default function AboutPage() {
             
             <h2>Version</h2>
             <p>
-                Version 2.0.0-beta
+                Version {packageInfo.version}
             </p>
             <p>
                 This is a beta version of this app. It should get the job done but there's still a lot more to do.
